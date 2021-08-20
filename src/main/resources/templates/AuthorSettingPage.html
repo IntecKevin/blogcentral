@@ -41,8 +41,11 @@
                 <div class="vol-8">
                     <label class="col-form-label col-4" for="firstName"><b>First Name</b></label>
 
-                    <input type="text"  th:name="firstName" th:value = " firstName"
+<!--                    <input type="text"  th:name="firstName" th:value = " author."-->
+<!--                           id="firstName" required>-->
+                    <input type="text"  th:name="firstName" th:value="${author.username}"
                            id="firstName" required>
+
                 </div>
                 <div class="vol-8">
                     <label class="col-form-label col-4" for="lastName"><b>Last Name</b></label>
