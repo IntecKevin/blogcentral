@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Central Group Project Home Page</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/homeStyle.css}"/>
+
+    <!--    <link rel="stylesheet" href="../static/homeStyle.css">/5.1.0   th:type="text/css" -->
+
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <h2>Hello from SpringBoot Login and Register with MySQL Home Page !</h2>
+    </div>
+    <div class="loginPage">
+        <h3><a th:href="@{/login}"> Login </a></h3>
+        <h3><a th:href="@{/registerSuccess}"> Registered Success (protected page)</a></h3>
+    </div>
+
+
+</div>
+
+</body>
+</html>
