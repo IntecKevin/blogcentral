@@ -5,12 +5,11 @@
     <meta charset="UTF-8">
     <title>LogIn Page</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" th:href="@{/login.css}"/>
 </head>
 
 <body>
 <div class="container">
-    <h3>Login</h3>
-
     <div th:if="${param.error}">
         Invalid username and password.
     </div>
@@ -18,45 +17,65 @@
         You have been logged out.
     </div>
 
-    <div class="LoginForm">
-        <form th:action="@{/login}" method="post">
+    <section class="vh-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-6 text-black">
 
-            <div class="imgcontainer">
-                <img src="img_avatar2.png" alt="Avatar" class="avatar">
+                    <div class="px-5 ms-xl-4">
+                        <i class="fas fa-crow fa-2x me-3 pt-5 mt-xl-4" style="color: #709085;"></i>
+                        <span class="h1 fw-bold mb-0">Logo</span>
+                    </div>
+
+                    <div class="d-flex align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5">
+
+
+                        <form th:action="@{/login}" method="post" style="width: 23rem;">
+                            <h3 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Log in</h3>
+
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form2Example17" class="form-control form-control-lg"
+                                       th:name="email"/>
+                                <label class="form-label" for="form2Example17">Email address</label>
+                            </div>
+
+                            <div class="form-outline mb-4">
+                                <input type="password" id="form2Example27" class="form-control form-control-lg"
+                                       th:name="password"/>
+                                <label class="form-label" for="form2Example27">Password</label>
+                            </div>
+                            <div class="form-check">
+                                <input
+                                        class="form-check-input"
+                                        type="checkbox"
+                                        value=""
+                                        id="form1Example3"
+                                        checked
+                                />
+                                <label class="form-check-label" for="form1Example3"> Remember me </label>
+                            </div>
+
+                            <div class="pt-1 mb-4">
+                                <button class="btn btn-info btn-lg btn-block"  type="submit" th:onclick="parent.history.go(-1)">Login</button>
+                            </div>
+
+                            <p class="small mb-5 pb-lg-2"><a class="text-muted" href="#!">Forgot password?</a></p>
+                            <p>Don't have an account? <a href="#!" class="link-info">Register here</a></p>
+
+                        </form>
+
+                    </div>
+
+                </div>
+                <div class="col-sm-6 px-0 d-none d-sm-block">
+                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/img3.jpg"
+                         alt="Login image" class="w-100 vh-100" style="object-fit: cover; object-position: left;">
+                </div>
             </div>
-
-            <div class="container">
-                <label for="email"><b>Username</b></label>
-                <input type="text" placeholder="Enter Your Email" th:name="email" id="email" required>
+        </div>
+    </section>
 
 
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" th:name="psw" id="psw" minlength="8" maxlength="15"
-                       required>
-
-                <button type="submit">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-
-    </form>
-
-    <!--ebd of the login form-->
-</div>
-
-
-<div class="reg">
-    <p> If you do not have an account yet</p>
-    <h3><a th:href="@{/register}"> Register here </a></h3>
-</div>
-
-<!-- end of main container -->
 </div>
 
 </body>
