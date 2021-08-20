@@ -50,4 +50,6 @@ public class AuthorDetailImpl implements UserDetails {
         return author.getFirstName() + " " + author.getLastName();
     }
 
+    public String getStreetName() { return author.getStreetName();}
+
 }

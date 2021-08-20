@@ -18,12 +18,20 @@
         <form>
             <h3><a th:href="@{/login}"> Login </a></h3>
             <h3><a th:href="@{/test1 page}"> TEST1 page </a></h3>
-            <input type="button" value="Go back!" onclick="history.back()">
+            <input type="button" value="Login!" onclick="history.back()">
         </form>
-
-
-
     </div>
+
+    <div class="vol-8">
+<!--        <label class="col-form-label col-4" for="streetName"><b>Street Name</b></label>-->
+
+        <h3>You are Log in as  <b>[[${#request.userPrincipal.principal.StreetName}]]</b> </h3>
+
+<!--        <input type="text" placeholder="street Name" th:field="${{#getStreetName}}" th:name="streetName"-->
+<!--               id="streetName"-->
+<!--               required>-->
+    </div>
+</div>
 
 </body>
 </html>

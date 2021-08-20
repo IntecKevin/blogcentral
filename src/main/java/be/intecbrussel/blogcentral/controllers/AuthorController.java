@@ -2,18 +2,26 @@ package be.intecbrussel.blogcentral.controllers;
 
 import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorRepo;
+import be.intecbrussel.blogcentral.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AuthorController {
 
     @Autowired
     private AuthorRepo repo;
+
+    @Autowired
+    AuthorService authorService;
 
     @GetMapping("/")
     public String viewHomePage() {
@@ -48,5 +56,10 @@ public class AuthorController {
         return "AuthorSettingPage";
     }
 
+    @RequestMapping("/delete-author")
+    public String deleteAuthor(@RequestParam Long id, HttpServletRequest request) {
+        authorService.deleteMyAuthor(id);
+        return "index";
+    }
 
 }
