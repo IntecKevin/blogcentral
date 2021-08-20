@@ -42,5 +42,11 @@ public class AuthorController {
         return "registerSuccess";
     }
 
+    @GetMapping("/AuthorSettingPage")
+    public String AprofilePage(Model model) {
+
+        return "AuthorSettingPage";
+    }
+
 
 }
