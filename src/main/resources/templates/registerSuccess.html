@@ -13,6 +13,10 @@
     <h3>You are Log in as  <b>[[${#request.userPrincipal.principal.fullName}]]</b> </h3>
     <input type="button" value="Go back!" onclick="parent.history.go(-2)">
 
+    <!--            delete button here-->
+    <input type="button" value="Delete Account" onclick="/delete-author?id=$[user.id]">
+    <!--            delete button here-->
+
     <div class="logout">
         <form th:action="@{/logout}" th:method="post">
             <input type="submit" value="Sign Out">

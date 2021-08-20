@@ -56,9 +56,18 @@ public class AuthorController {
         return "AuthorSettingPage";
     }
 
+    //delete author
     @RequestMapping("/delete-author")
     public String deleteAuthor(@RequestParam Long id, HttpServletRequest request) {
         authorService.deleteMyAuthor(id);
+        return "index";
+    }
+
+    //edit author
+    @RequestMapping("/edit-author")
+    public String editAuthor(@RequestParam Long id, HttpServletRequest request) {
+        request.setAttribute("author",authorService.editAuthor(id));
+        request.setAttribute("mode","MODE_UPDATE");
         return "index";
     }
 
