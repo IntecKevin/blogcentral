@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LogIn Page</title>
+    <link rel="stylesheet"  th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+<body>
+<div class="container">
+    <h3>Login</h3>
+</div>
+<div class="LoginForm">
+<!--    <form th:action="@{/user_login}" method="get" th:object="${user Id }>-->
+<!--        <div class="imgcontainer">-->
+<!--            <img src="img_avatar2.png" alt="Avatar" class="avatar">-->
+<!--        </div>-->
+
+<!--        <div class="container">-->
+<!--            <label for="email"><b>Username</b></label>-->
+<!--            <input type="text" placeholder="Enter Username" name="uname" required>-->
+
+<!--            <label for="psw"><b>Password</b></label>-->
+<!--            <input type="password" placeholder="Enter Password" name="psw" required>-->
+
+<!--            <button type="submit">Login</button>-->
+<!--            <label>-->
+<!--                <input type="checkbox" checked="checked" name="remember"> Remember me-->
+<!--            </label>-->
+<!--        </div>-->
+
+<!--        <div class="container" style="background-color:#f1f1f1">-->
+<!--            <button type="button" class="cancelbtn">Cancel</button>-->
+<!--            <span class="psw">Forgot <a href="#">password?</a></span>-->
+<!--        </div>-->
+<!--    </form>-->
+</div>
+
+<div class="reg">
+    <p> If you do not have an account yet</p>
+    <h3><a th:href="@{/register}"> Register here </a> </h3>
+</div>
+</body>
+</html>
