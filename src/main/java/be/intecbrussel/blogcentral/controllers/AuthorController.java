@@ -42,16 +42,11 @@ public class AuthorController {
         return "registerSuccess";
     }
 
-    @GetMapping("/test1 page")
-    public String test1Page(Model model) {
+    @GetMapping("/AuthorSettingPage")
+    public String AprofilePage(Model model) {
 
-        return "test1 page";
+        return "AuthorSettingPage";
     }
 
-    @GetMapping("/test2 page")
-    public String test2Page(Model model) {
-
-        return "test2 page";
-    }
 
 }
