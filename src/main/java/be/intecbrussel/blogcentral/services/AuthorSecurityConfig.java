@@ -53,9 +53,10 @@ public class AuthorSecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
+                .loginPage("/login")
+                .permitAll()
                 .usernameParameter("email")
                 .defaultSuccessUrl("/registerSuccess") //this will be the landing page after login
-                .permitAll()
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll();
     }

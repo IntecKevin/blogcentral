@@ -11,8 +11,15 @@
 <div class="container">
     <h3>Login</h3>
 
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
     <div class="LoginForm">
-        <form th:action="@{/user_login}" method="post">
+        <form th:action="@{/login}" method="post">
 
             <div class="imgcontainer">
                 <img src="img_avatar2.png" alt="Avatar" class="avatar">
@@ -20,7 +27,7 @@
 
             <div class="container">
                 <label for="email"><b>Username</b></label>
-                <input type="text" placeholder="Enter Email" th:name="email" id="email" required>
+                <input type="text" placeholder="Enter Your Email" th:name="email" id="email" required>
 
 
                 <label for="psw"><b>Password</b></label>
