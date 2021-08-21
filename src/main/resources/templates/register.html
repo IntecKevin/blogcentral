@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Register Page</title>
+
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/register.css}"/>
+
 </head>
 <body>
 <div class="container">
@@ -14,22 +16,25 @@
 
         <section class="h-100 h-custom gradient-custom-2">
             <div class="container py-5 h-100">
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                    Register
+                </p>
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12">
-                        <div class="card card-registration card-registration-2" style="border-radius: 15px;">
-                            <div class="card-body p-0">
-                                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Register</p>
-                                <div class="row g-0">
-                                    <form class="mx-1 mx-md-4" th:action="@{/process_register}"
-                                          method="post"
-                                          th:object="${user}"
-                                          >
+                        <div class="card card-registration card-registration-2"
+                             style="border-radius: 15px">
+
+                            <form class="mx-1 mx-md-4" th:action="@{/process_register}"
+                                  method="post"
+                                  th:object="${user}">
+
+                                <div class="card-body p-0">
+                                    <div class="row g-0">
 
                                         <div class="col-lg-6">
                                             <div class="p-5">
-                                                <h3 class="fw-normal mb-5" style="color: #4835d4;">General
-                                                    Infomation</h3>
-
+                                                <h3 class="fw-normal mb-5" style="color: #4835d4">
+                                                    General Infomation </h3>
 
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -56,19 +61,20 @@
                                                     </div>
                                                 </div>
 
-
-                                                <!--                                                <div class="col-md-6 mb-4 pb-2">-->
-                                                <!--            <div class="d-flex flex-row align-items-center mb-4">-->
-                                                <!--                <i class="fas fa-key fa-lg me-3 fa-fw"></i>-->
-                                                <!--                <div class="form-outline flex-fill mb-0">-->
-                                                <!--                    <input class="form-control"  type="password" placeholder="Enter Password" th:field="*{password}" th:name="psw-repeat"-->
-                                                <!--                           id="psw-repeat"-->
-                                                <!--                           minlength="8" maxlength="15" required />-->
-                                                <!--                    <label class="form-label" for="psw-repeat">Repeat your password</label>-->
-                                                <!--                </div>-->
-                                                <!--            </div>-->
-                                                <!--                                                </div>-->
-
+                                                <!--
+                                                                                                <div class="d-flex flex-row align-items-center mb-4">
+                                                                                                    <i class="fas fa-key fa-lg me-3 fa-fw"></i>
+                                                                                                    <div class="form-outline flex-fill mb-0">
+                                                                                                        <input class="form-control" type="password"
+                                                                                                               placeholder="Enter Password" th:field="*{password}"
+                                                                                                               th:name="psw-repeat"
+                                                                                                               id="psw-repeat"
+                                                                                                               minlength="8" maxlength="15" required/>
+                                                                                                        <label class="form-label" for="psw-repeat">Repeat your
+                                                                                                            password</label>
+                                                                                                    </div>
+                                                                                                </div>
+                                                 -->
 
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -111,10 +117,9 @@
                                         </div>
 
 
-
-                                        <div class="col-lg-6 bg-indigo " >
+                                        <div class="col-lg-6 bg-indigo text-white">
                                             <div class="p-5">
-                                                <h3 class="fw-normal mb-5" style="color: #4835d4;" >Contact Details</h3>
+                                                <h3 class="fw-normal mb-5">Contact Details</h3>
 
                                                 <div class="d-flex flex-row align-items-center mb-4">
                                                     <i class="fas fa-user fa-lg me-3 fa-fw"></i>
@@ -201,16 +206,16 @@
                                                 </div>
                                             </div>
                                         </div>
-
-
-                                    </form>
-
+                                    </div>
                                 </div>
-                            </div>
+
+                            </form>
+
                         </div>
                     </div>
                 </div>
             </div>
+
             <!--                                                <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">-->
 
             <!--                                                    <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/draw1.png"-->

@@ -31,9 +31,8 @@ public class AuthorController {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(author.getPassword());
         author.setPassword(encodedPassword);
-
         repo.save(author);
-        return "registerSuccess";
+        return "index";
     }
 
     @GetMapping("/registerSuccess")
