@@ -2,6 +2,7 @@ package be.intecbrussel.blogcentral.controllers;
 
 import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorRepo;
+import be.intecbrussel.blogcentral.repositories.ProfileRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -14,6 +15,9 @@ public class AuthorController {
 
     @Autowired
     private AuthorRepo repo;
+
+    @Autowired
+    private ProfileRepo prorepo;
 
     @GetMapping("/")
     public String viewHomePage() {
@@ -35,6 +39,12 @@ public class AuthorController {
         return "index";
     }
 
+    @GetMapping("/process_SettingPage")
+    public String processProfile (Author author){
+        prorepo.findById(author.getId());
+        return "authorSettingPage";
+    }
+
     @GetMapping("/registerSuccess")
     public String SuccessPage(Model model) {
 
@@ -44,7 +54,7 @@ public class AuthorController {
     @GetMapping("/AuthorSettingPage")
     public String AprofilePage(Model model) {
 
-        return "AuthorSettingPage";
+        return "authorSettingPage";
     }
 
 
