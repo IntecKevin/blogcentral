@@ -2,7 +2,9 @@ package be.intecbrussel.blogcentral.model;
 
 import javax.persistence.*;
 
+
 @Entity
+@Table(name = "comments")
 public class Comment {
 
     @Id

@@ -1,6 +1,7 @@
 package be.intecbrussel.blogcentral.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "articles")
@@ -20,9 +21,9 @@ public class Article {
     private Author author;
 
     @OneToMany
-    private Comment comment;
+    private List<Comment> comment;
 
-    public Article(Long id, String articleText, String articleTitle, Author author, Comment comment) {
+    public Article(Long id, String articleText, String articleTitle, Author author, List<Comment> comment) {
         this.id = id;
         this.articleText = articleText;
         this.articleTitle = articleTitle;
@@ -65,11 +66,11 @@ public class Article {
         this.author = author;
     }
 
-    public Comment getComment() {
+    public List<Comment> getComment() {
         return comment;
     }
 
-    public void setComment(Comment comment) {
+    public void setComment(List<Comment> comment) {
         this.comment = comment;
     }
 }
