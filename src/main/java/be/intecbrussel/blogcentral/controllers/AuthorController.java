@@ -2,6 +2,7 @@ package be.intecbrussel.blogcentral.controllers;
 
 import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorRepo;
+import be.intecbrussel.blogcentral.repositories.ProfileRepo;
 import be.intecbrussel.blogcentral.services.AuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,7 +22,10 @@ public class AuthorController {
     private AuthorRepo repo;
 
     @Autowired
-    AuthorService authorService;
+    private ProfileRepo prorepo;
+
+    @Autowired
+    private AuthorService authorService;
 
     @GetMapping("/")
     public String viewHomePage() {
@@ -39,9 +43,14 @@ public class AuthorController {
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
         String encodedPassword = encoder.encode(author.getPassword());
         author.setPassword(encodedPassword);
-
         repo.save(author);
-        return "registerSuccess";
+        return "index";
+    }
+
+    @GetMapping("/process_SettingPage")
+    public String processProfile (Author author){
+        prorepo.findById(author.getId());
+        return "authorSettingPage";
     }
 
     @GetMapping("/registerSuccess")
@@ -53,7 +62,7 @@ public class AuthorController {
     @GetMapping("/AuthorSettingPage")
     public String AprofilePage(Model model) {
 
-        return "AuthorSettingPage";
+        return "authorSettingPage";
     }
 
     //delete author
