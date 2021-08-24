@@ -12,12 +12,35 @@
     <div class="header">
         <h2>You can share your articles here</h2>
     </div>
-    <form th:action="@{/process_article}">
+
+    <form th:action="@{/process_article}"
         method="post"
         th:object="${article}">
     <div class="articlepage">
-        <h3><a th:href="@{/article.html}"> Create an article </a></h3>
+        <h3><a th:href="@{/article}"> Create an article </a></h3>
     </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="formText" class="form-control form-control-lg"
+                   th:name="Title"/>
+            <label class="form-label" for="formText">Title</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="formOfText" class="form-control form-control-lg"
+                   th:name="Summary"/>
+            <label class="form-label" for="formOfText">Summary</label>
+        </div>
+
+        <div class="form-outline mb-4">
+            <input type="text" id="formForText" class="form-control form-control-lg"
+                   th:name="Text"/>
+            <label class="form-label" for="formForText">Article Text</label>
+        </div>
+
+        <div class="pt-1 mb-4">
+            <button class="btn btn-info btn-lg btn-block"  type="submit" >Submit</button>
+        </div>
 
     </form>
 </div>

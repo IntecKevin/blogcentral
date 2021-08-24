@@ -7,14 +7,18 @@ import java.util.List;
 @Table(name = "articles")
 public class Article {
 
+    //summary(length=255)
+    //counter for the like??? - LET'S KEEP THIS TOMORROW TO ASK MANU
+    //date and time
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String articleText;
 
-    @Column
+    @Column(nullable = false, length = 60)
     private String articleTitle;
 
     @ManyToOne

@@ -1,9 +1,7 @@
 package be.intecbrussel.blogcentral;
 
 import be.intecbrussel.blogcentral.model.Article;
-import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.ArticleRepo;
-import be.intecbrussel.blogcentral.repositories.AuthorRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
@@ -11,7 +9,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
 
-import java.util.List;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
