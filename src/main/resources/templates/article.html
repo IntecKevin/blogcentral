@@ -21,21 +21,21 @@
     </div>
 
         <div class="form-outline mb-4">
-            <input type="text" id="formText" class="form-control form-control-lg"
+            <input type="text" th:field="*{articleTitle}" id="articleTitle" class="form-control form-control-lg"
                    th:name="Title"/>
-            <label class="form-label" for="formText">Title</label>
+            <label class="form-label" for="articleTitle">Title</label>
         </div>
 
         <div class="form-outline mb-4">
-            <input type="text" id="formOfText" class="form-control form-control-lg"
+            <input type="text" id="summary" class="form-control form-control-lg"
                    th:name="Summary"/>
-            <label class="form-label" for="formOfText">Summary</label>
+            <label class="form-label" for="summary">Summary</label>
         </div>
 
         <div class="form-outline mb-4">
-            <input type="text" id="formForText" class="form-control form-control-lg"
+            <input type="text" th:field="*{articleText}" id="articleText" class="form-control form-control-lg"
                    th:name="Text"/>
-            <label class="form-label" for="formForText">Article Text</label>
+            <label class="form-label" for="articleText">Article Text</label>
         </div>
 
         <div class="pt-1 mb-4">

@@ -23,7 +23,7 @@ public class ArticleController {
     @PostMapping("/process_article")
     public String processPosting(Article article) {
         articleRepo.save(article);
-        return "article";
+        return "index";
     }
 
 
