@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CustomAuthorDetailService  implements UserDetailsService {
 
     @Autowired
@@ -18,7 +20,7 @@ public class CustomAuthorDetailService  implements UserDetailsService {
 
         Author author = authorRepo.findByEmail(email);
         if (author == null) {
-            throw new UsernameNotFoundException("User not found");
+            throw new UsernameNotFoundException("User not found user with that email");
         }
         return new AuthorDetailImpl(author);
     }

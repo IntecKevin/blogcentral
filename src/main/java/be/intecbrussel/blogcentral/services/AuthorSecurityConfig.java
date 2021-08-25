@@ -54,12 +54,19 @@ public class AuthorSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .formLogin()
                 .loginPage("/login")
-                .permitAll()
                 .usernameParameter("email")
+                .permitAll()
                 .defaultSuccessUrl("/registerSuccess") //this will be the landing page after login
                 .and()
-                .logout().logoutSuccessUrl("/").permitAll();
+                .logout().logoutSuccessUrl("/").permitAll()
+                .and()
+                .rememberMe().key("AbcDefgHijKlmnOpqrs_1234567890")
+                .tokenValiditySeconds(30*24*60*60);
+
+
     }
+
+
 
 
 }

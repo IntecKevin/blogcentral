@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>Author Profile Page</title>
@@ -9,96 +10,72 @@
 
 
 <div class="container">
+    <!--    <div class="menubar" th:replace=" ">Menu Bar</div>-->
+
     <p>have to add the previous visit page b4 login!!!!</p>
+    <h3><a th:href="@{/}"> Home Page </a></h3>
     <h3><a th:href="@{/login}"> Login </a></h3>
+
+    <p> You are log in as <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+    <span sec:authentication="principal.fullName"> </span>
+
     <div class="profileContainer">
 
-        <form class="mx-1 mx-md-4" th:action="@{/process_SettingPage}"
-              method="get"
-              th:object="${Author}">
+        <!--
+               <table>
+                   <tr>
+                       <td>Name :</td>
+                       <td>${name}</td>
+                   </tr>
+                   <tr>
+                       <td>ID :</td>
+                       <td>${id}</td>
+                   </tr>
+                   <tr>
+                       <td>Contact Number :</td>
+                       <td>${contactNumber}</td>
+                   </tr>
+               </table>
+               -->
 
 
-            <div class="m-3">
-                <div class="form-group row">
-                    <!--
-                                  <label class="col-form-label col-4" for="email"><b>Email</b></label>
-
-                                  <div class="vol-8">
-                                      <input type="text" placeholder="Enter Email" th:field="${#user.email}" th:name="email"
-                                             id="email"
-                                             required>
-                                  </div>
-                                  -->
-                    <div class="vol-8">
-                        <input th:type="text" th:name="firstName" th:id="firstName"
-                               th:attr="data-id= "${element.getId()}" data-name="${element.getfirstName()}" >
-                    </div>
-
-                    <!--
+        <form class="mx-1 mx-md-4">
 
 
-                          <div class="vol-8">
-                              <label class="col-form-label col-4" for="firstName"><b>First Name</b></label>
-
-                              <input type="text"  th:name="firstName" th:value = " firstName"
-                                     id="firstName" required>
-                          </div>
-                          <div class="vol-8">
-                              <label class="col-form-label col-4" for="lastName"><b>Last Name</b></label>
-
-                              <input type="text" placeholder="Last Name" th:name="lastName"
-                                     id="lastName"
-                                     required>
-                          </div>
-
-                          <div class="vol-8">
-                              <label class="col-form-label col-4" for="userName"><b>User Name</b></label>
-
-                              <input type="text" placeholder="Last Name" th:name="userName"
-                                     id="userName"
-                                     required>
-                          </div>
-
-                          <div class="vol-8">
-                              <label class="col-form-label col-4" for="streetName"><b>Street Name</b></label>
-
-                              <input type="text" placeholder="street Name" th:name="streetName"
-                                     id="streetName"
-                                     required>
-                          </div>
-
-
-                          <div class="vol-8">
-                              <label class="col-form-label col-4" for="houseNo"><b>House Number</b></label>
-
-                              <input type="text" placeholder="house number" th:name="houseNo"
-                                     id="houseNo"
-                                     required>
-                          </div>
-
-                          <div class="vol-8">
-                              <label class="col-form-label col-4" for="cityName"><b>City Name</b></label>
-
-                              <input type="text" placeholder="City Name" th:name="cityName"
-                                     id="cityName"
-                                     required>
-                          </div>
-
-                          <div class="vol-8">
-                              <label class="col-form-label col-4" for="zipCode"><b>Zip Code</b></label>
-
-                              <input type="number" placeholder="Zip code" th:name="zipCode"
-                                     id="zipCode"
-                                     required>
-                          </div>
-
-              -->
-                </div>
+            <div class="vol-8">
+                <lable> Email :</lable>
+                <input th:type="text" th:name="email"  th:value="${author.username}">
             </div>
+
+            <div class="vol-8">
+                <lable> Full Name :</lable>
+                <input th:type="text" th:name="fullName" th:value="${author.fullName }">
+            </div>
+
+            <div class="vol-8">
+                <lable> First Name :</lable>
+                <input th:type="text" th:name="firstName" th:value="${author.getFirstName() }">
+            </div>
+
+            <div class="vol-8">
+                <lable> Last Name :</lable>
+                <input th:type="text" th:name="lastName" th:value="${author.getLastName() }">
+            </div>
+
+            <div class="vol-8">
+                <lable> User Name :</lable>
+                <input th:type="text" th:name="userName" th:value="${authorDetail.loadUserByUsername(getaddress) }">
+            </div>
+
+
+
         </form>
 
     </div>
     <div class="sidebar"></div>
+
+
+    <!--    <div class="menubar" th:replace=" ">Footer</div>-->
 
 
 </div>

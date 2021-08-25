@@ -2,17 +2,33 @@ package be.intecbrussel.blogcentral.repositories;
 import java.util.Collection;
 
 import be.intecbrussel.blogcentral.model.Author;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.stereotype.Service;
+
 
 public class AuthorDetailImpl implements UserDetails {
+
+
     private Author author;
+
 
     public AuthorDetailImpl(Author author) {
         this.author = author;
     }
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        /*
+        Set<Article> articles = author.getArticles();
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+         for (Article article : articles) {
+            authorities.add(new SimpleGrantedAuthority(article.getName()));
+        }
+        return authorities;
+         */
         return null;
     }
 
@@ -25,6 +41,15 @@ public class AuthorDetailImpl implements UserDetails {
     public String getUsername() {
         return author.getEmail();
     }
+/*
+ // This override method is login to App with Username.
+
+    @Override
+    public String getUsername() {
+        return author.getUserName();
+    }
+
+ */
 
     @Override
     public boolean isAccountNonExpired() {
@@ -46,8 +71,21 @@ public class AuthorDetailImpl implements UserDetails {
         return true;
     }
 
-    public String getFullName() {
-        return author.getFirstName() + " " + author.getLastName();
+
+    public String getFullName(){
+        return this.author.getFullName();
     }
+
+    // How can I get all the user information not to rewrite again
+
+    public String getFirstName() {
+        return author.getFirstName();
+    }
+
+    public String getLastName() {
+        return author.getLastName();
+    }
+
+
 
 }
