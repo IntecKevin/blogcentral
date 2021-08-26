@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Blog Central Group Project Home Page</title>
+    <title>About US Page</title>
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" th:href="@{/homeStyle.css}"/>
 
@@ -12,13 +12,18 @@
 <body>
 <div class="container">
     <div class="header">
-        <h2>Hello from SpringBoot Login and Register with MySQL Home Page !</h2>
+        <h2> Welcome to our Blog Central Team !</h2>
     </div>
     <div class="loginPage">
+        <h3><a th:href="@{/}"> Home Page </a></h3>
         <h3><a th:href="@{/login}"> Login </a></h3>
         <h3><a th:href="@{/authorProfileSettingPage}"> Registered Success + Author Profile Page (protected page)</a></h3>
         <h3><a th:href="@{/authorBlogHome}"> Author Blog Home Page (protected page) </a></h3>
-        <h3><a th:href="@{/aboutUs}"> About Us Page </a></h3>
+    </div>
+
+    <div class="teamcontainer">
+
+        <h4>Our Team</h4>
     </div>
 
 

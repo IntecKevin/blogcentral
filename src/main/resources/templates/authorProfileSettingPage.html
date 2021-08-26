@@ -12,9 +12,22 @@
 <div class="container">
     <!--    <div class="menubar" th:replace=" ">Menu Bar</div>-->
 
-    <p>have to add the previous visit page b4 login!!!!</p>
+    <h1> <b> have to add the previous visit page b4 login!!!! </b></h1>
+
     <h3><a th:href="@{/}"> Home Page </a></h3>
-    <h3><a th:href="@{/login}"> Login </a></h3>
+    <h3><a th:href="@{/login}"> Login (This will not be show in the final version) </a></h3>
+    <div class="logout">
+        <form th:action="@{/logout}" th:method="post">
+            <input type="submit" value="Sign Out">
+        </form>
+    </div>
+    <h3><a th:href="@{/authorBlogHome}"> Author Blog Home Page (protected page) </a></h3>
+    <br>
+    <br>
+    <hr>
+
+    <h1> Your registration is successfully done !!! </h1>
+
 
     <p> You are log in as <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
     <span sec:authentication="principal.fullName"> </span>
@@ -72,7 +85,7 @@
         </form>
 
     </div>
-    <div class="sidebar"></div>
+
 
 
     <!--    <div class="menubar" th:replace=" ">Footer</div>-->
