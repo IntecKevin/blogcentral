@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registered / Author detail Setting Page </title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
+</head>
+<body>
+<div class="container">
+    <div class="sidebar"></div>
+    <div class="storycontainer">
+        <br>
+        <h2>Author Blog Home Page</h2>
+        <br>
+        <h3><a th:href="@{/}"> Home Page </a></h3>
+        <h3><a th:href="@{/authorProfileSettingPage}"> Author Profile Page (protected page) </a></h3>
+        <div class="logout">
+            <form th:action="@{/logout}" th:method="post">
+                <input type="submit" value="Sign Out">
+            </form>
+        </div>
+
+        <br>
+        <br>
+        <hr>
+        <br>
+        <h3>You are Log in as <b>[[${#request.userPrincipal.principal.fullName}]]</b></h3>
+        <p> This page is an Author's Blog Home Page. So other authors can't access to this page.</p>
+    </div>
+
+</div>
+
+</body>
+</html>

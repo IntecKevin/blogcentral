@@ -49,14 +49,14 @@ public class AuthorSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/registerSuccess").authenticated() // this is the protected section
+                .antMatchers("/authorBlogHome" , " /authorProfileSettingPage").authenticated() // this is the protected section
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
                 .usernameParameter("email")
                 .permitAll()
-                .defaultSuccessUrl("/registerSuccess") //this will be the landing page after login
+                .defaultSuccessUrl("/authorProfileSettingPage") //this will be the landing page after login
                 .and()
                 .logout().logoutSuccessUrl("/").permitAll()
                 .and()
