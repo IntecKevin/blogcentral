@@ -11,11 +11,8 @@
 
     <h1> Your registration is successfully done !!! </h1>
     <h3>You are Log in as  <b>[[${#request.userPrincipal.principal.fullName}]]</b> </h3>
-    <input type="button" value="Go back!" onclick="parent.history.go(-2)">
+    <h3><a th:href="@{/authorSettingPage}"> Author Profile Page </a></h3>
 
-    <!--            delete button here-->
-    <input type="button" value="Delete Account" th:onclick="/delete-author?id=$[#request.userPrincipal.principal.id]">
-    <!--            delete button here-->
 
     <div class="logout">
         <form th:action="@{/logout}" th:method="post">

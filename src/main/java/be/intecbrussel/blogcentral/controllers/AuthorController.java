@@ -2,18 +2,13 @@ package be.intecbrussel.blogcentral.controllers;
 
 import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorRepo;
-import be.intecbrussel.blogcentral.repositories.ProfileRepo;
-import be.intecbrussel.blogcentral.services.AuthorService;
+import be.intecbrussel.blogcentral.repositories.AuthorProfileRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class AuthorController {
@@ -22,10 +17,7 @@ public class AuthorController {
     private AuthorRepo repo;
 
     @Autowired
-    private ProfileRepo prorepo;
-
-    @Autowired
-    private AuthorService authorService;
+    private AuthorProfileRepo prorepo;
 
     @GetMapping("/")
     public String viewHomePage() {
@@ -65,19 +57,5 @@ public class AuthorController {
         return "authorSettingPage";
     }
 
-    //delete author
-    @RequestMapping("/delete-author")
-    public String deleteAuthor(@RequestParam Long id, HttpServletRequest request) {
-        authorService.deleteMyAuthor(id);
-        return "index";
-    }
-
-    //edit author
-    @RequestMapping("/edit-author")
-    public String editAuthor(@RequestParam Long id, HttpServletRequest request) {
-        request.setAttribute("author",authorService.editAuthor(id));
-        request.setAttribute("mode","MODE_UPDATE");
-        return "index";
-    }
 
 }

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Author Profile Page</title>
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+
+
+<div class="container">
+    <!--    <div class="menubar" th:replace=" ">Menu Bar</div>-->
+
+    <p>have to add the previous visit page b4 login!!!!</p>
+    <h3><a th:href="@{/}"> Home Page </a></h3>
+    <h3><a th:href="@{/login}"> Login </a></h3>
+
+    <p> You are log in as <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+    <span sec:authentication="principal.fullName"> </span>
+
+    <div class="profileContainer">
+
+        <!--
+               <table>
+                   <tr>
+                       <td>Name :</td>
+                       <td>${name}</td>
+                   </tr>
+                   <tr>
+                       <td>ID :</td>
+                       <td>${id}</td>
+                   </tr>
+                   <tr>
+                       <td>Contact Number :</td>
+                       <td>${contactNumber}</td>
+                   </tr>
+               </table>
+               -->
+
+
+        <form class="mx-1 mx-md-4">
+
+
+            <div class="vol-8">
+                <lable> Email :</lable>
+                <input th:type="text" th:name="email"  th:value="${author.username}">
+            </div>
+
+            <div class="vol-8">
+                <lable> Full Name :</lable>
+                <input th:type="text" th:name="fullName" th:value="${author.fullName }">
+            </div>
+
+            <div class="vol-8">
+                <lable> First Name :</lable>
+                <input th:type="text" th:name="firstName" th:value="${author.getFirstName() }">
+            </div>
+
+            <div class="vol-8">
+                <lable> Last Name :</lable>
+                <input th:type="text" th:name="lastName" th:value="${author.getLastName() }">
+            </div>
+
+            <div class="vol-8">
+                <lable> User Name :</lable>
+                <input th:type="text" th:name="userName" th:value="${authorDetail.loadUserByUsername(getaddress) }">
+            </div>
+
+
+
+        </form>
+
+    </div>
+    <div class="sidebar"></div>
+
+
+    <!--    <div class="menubar" th:replace=" ">Footer</div>-->
+
+
+</div>
+
+
+</body>
+</html>

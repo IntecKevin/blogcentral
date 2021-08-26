@@ -1,6 +1,8 @@
 package be.intecbrussel.blogcentral.model;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "authors")
@@ -38,6 +40,12 @@ public class Author {
 
     @Column(nullable = false, length = 6)
     private int zipCode;
+/*
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "author_id"), inverseJoinColumns = @JoinColumn(name = "article_id"))
+    private Set<Article> roles = new HashSet<>();
+  */
+
 
     public Long getId() {
         return id;
@@ -117,5 +125,42 @@ public class Author {
 
     public void setZipCode(int zipCode) {
         this.zipCode = zipCode;
+    }
+
+    public Author(String email, String password, String firstName, String lastName,
+                  String userName, String streetName, int houseNo, String cityName, int zipCode) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.streetName = streetName;
+        this.houseNo = houseNo;
+        this.cityName = cityName;
+        this.zipCode = zipCode;
+    }
+
+    public Author() {
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", streetName='" + streetName + '\'' +
+                ", houseNo=" + houseNo +
+                ", cityName='" + cityName + '\'' +
+                ", zipCode=" + zipCode +
+                '}';
+    }
+
+    @Transient
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
     }
 }
