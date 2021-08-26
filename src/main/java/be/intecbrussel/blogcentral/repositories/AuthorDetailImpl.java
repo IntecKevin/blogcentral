@@ -87,5 +87,12 @@ public class AuthorDetailImpl implements UserDetails {
     }
 
 
+    // How can I reuse the Author Class without rewriting following codes.
 
+    public void setFirstName (String fistName) {
+        this.author.setFirstName(fistName);
+    }
+    public void setLastName (String lastName) {
+        this.author.setLastName(lastName);
+    }
 }

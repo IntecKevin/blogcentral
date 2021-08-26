@@ -25,3 +25,5 @@ public class CustomAuthorDetailService  implements UserDetailsService {
         return new AuthorDetailImpl(author);
     }
 }
+
+

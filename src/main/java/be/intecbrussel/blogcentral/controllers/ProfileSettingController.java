@@ -32,27 +32,48 @@ public class ProfileSettingController {
         return "authorSettingPage";
 
     }
+
+    /*
+
+    public String editAuthor(){
+
+
+        return null;
+    }
+
+    public String saveAuthor(){
+
+        return null;
+    }
+
+    public String deleteAuthor(){
+
+        return null;
+    }
+
+     */
+
     /*
 
     @RequestMapping(value = "/authorSettingPage", method = RequestMethod.GET)
-    public ModelAndView showForm() {
+    public ModelAndView showAuthorDetailProfileInfo() {
         return new ModelAndView(
-                model.addAttribute("name", employee.getName());
-        model.addAttribute("contactNumber", employee.getContactNumber());
-        model.addAttribute("id", employee.getId());
-                );
+        model.addAttribute("lastName", author.getLastName());
+        model.addAttribute("streetName", author.streetName();
+        model.addAttribute("houseNo", author.houseNo);
+          );
     }
 
-    @RequestMapping(value = "/addEmployee", method = RequestMethod.POST)
-    public String submit(@Valid @ModelAttribute("employee")Employee employee,
+    @RequestMapping(value = "/authorSettingPage/save", method = RequestMethod.POST)
+    public String submit(@Valid @ModelAttribute("author")Author author,
                          BindingResult result, ModelMap model) {
         if (result.hasErrors()) {
             return "error";
         }
-        model.addAttribute("name", employee.getName());
-        model.addAttribute("contactNumber", employee.getContactNumber());
-        model.addAttribute("id", employee.getId());
-        return "employeeView";
+        model.addAttribute("lastName", author.getLastName());
+        model.addAttribute("streetName", author.streetName();
+        model.addAttribute("houseNo", author.houseNo);
+        return "authorSettingPage";
     }
 
      */
