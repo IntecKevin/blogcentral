@@ -1,6 +1,7 @@
 package be.intecbrussel.blogcentral.controllers;
 
 
+import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorDetailImpl;
 import be.intecbrussel.blogcentral.services.CustomAuthorDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,7 @@ public class AuthorProfileSettingController {
 
         model.addAttribute("author", loginAuthor);
         model.addAttribute("authorDetail", customAuthorDetailService);
+//        model.addAllAttributes(<loginAuthor> , getClass(Author));
 
 
         return "authorProfileSettingPage";

@@ -10,6 +10,7 @@ public class Article {
     //summary(length=255)
     //counter for the like??? - LET'S KEEP THIS TOMORROW TO ASK MANU
     //date and time
+    //need to update the relation among columns
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,6 +18,9 @@ public class Article {
 
     @Column(nullable = false)
     private String articleText;
+
+    @Column(nullable = false, length = 30)
+    private String articleSummary;
 
     @Column(nullable = false, length = 60)
     private String articleTitle;
@@ -27,13 +31,18 @@ public class Article {
     @OneToMany
     private List<Comment> comment;
 
-    public Article(Long id, String articleText, String articleTitle, Author author, List<Comment> comment) {
-        this.id = id;
+    public Article(String articleText, String articleSummary,
+                   String articleTitle, Author author, List<Comment> comment) {
         this.articleText = articleText;
+        this.articleSummary = articleSummary;
         this.articleTitle = articleTitle;
         this.author = author;
         this.comment = comment;
     }
+
+// need constructor for comment and author
+
+
 
     public Article() {
     }
@@ -52,6 +61,14 @@ public class Article {
 
     public void setArticleText(String articleText) {
         this.articleText = articleText;
+    }
+
+    public String getArticleSummary() {
+        return articleSummary;
+    }
+
+    public void setArticleSummary(String articleSummary) {
+        this.articleSummary = articleSummary;
     }
 
     public String getArticleTitle() {

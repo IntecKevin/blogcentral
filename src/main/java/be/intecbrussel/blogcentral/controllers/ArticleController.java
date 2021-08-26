@@ -14,10 +14,10 @@ public class ArticleController {
     @Autowired
     private ArticleRepo articleRepo;
 
-    @GetMapping("/article")
+    @GetMapping("/createArticle")
     public String showArticleForm(Model model) {
         model.addAttribute("article", new Article());
-        return "article";
+        return "createArticle";
     }
 
     @PostMapping("/process_article")
