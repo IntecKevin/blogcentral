@@ -39,7 +39,7 @@ public class AuthorDetailImpl implements UserDetails {
 
     @Override
     public String getUsername() {
-        return author.getEmail();
+        return author.getUserName();
     }
 /*
  // This override method is login to App with Username.
@@ -85,6 +85,29 @@ public class AuthorDetailImpl implements UserDetails {
     public String getLastName() {
         return author.getLastName();
     }
+
+    public String getEmail() {
+        return author.getEmail();
+    }
+
+    public String getStreetName() {
+        return author.getStreetName();
+    }
+
+    public int getHouseNo() {
+        return author.getHouseNo();
+    }
+
+    public String getCityName() {
+        return author.getCityName();
+    }
+
+    public int getZipCode() {
+        return author.getZipCode();
+    }
+
+
+
 
 
     // How can I reuse the Author Class without rewriting following codes.

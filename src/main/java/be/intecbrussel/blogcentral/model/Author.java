@@ -18,10 +18,8 @@ public class Author {
     @Column (nullable = false, length = 64)
     private String password;
 
-
     @Column(nullable = false, length = 20)
     private String firstName;
-
 
     @Column(nullable = false, length = 20)
     private String lastName;
@@ -45,7 +43,6 @@ public class Author {
     @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "author_id"), inverseJoinColumns = @JoinColumn(name = "article_id"))
     private Set<Article> roles = new HashSet<>();
   */
-
 
     public Long getId() {
         return id;
