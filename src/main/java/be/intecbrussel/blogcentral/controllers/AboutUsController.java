@@ -11,4 +11,5 @@ public class AboutUsController {
         return "aboutUs";
 
     }
+
 }

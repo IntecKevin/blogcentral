@@ -1,5 +1,5 @@
 .mb-5 {
-    margin-bottom: 1rem !important;
+    margin-bottom: 0em !important;
 }
 .mt-4 {
     margin-top: 0rem !important;
@@ -26,6 +26,7 @@
 .gradient-custom-2 {
     /* fallback for old browsers */
     background: #a1c4fd;
+    border-radius: 1%;
 
     /* Chrome 10-25, Safari 5.1-6 */
     background: -webkit-linear-gradient(to right, rgba(161, 196, 253, 1), rgba(194, 233, 251, 1));

@@ -72,6 +72,8 @@ public class AuthorDetailImpl implements UserDetails {
     }
 
 
+
+
     public String getFullName(){
         return this.author.getFullName();
     }

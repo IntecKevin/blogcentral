@@ -1,0 +1,98 @@
+<header>
+<div class="nevContainer" th:fragment="menubar" style="padding: 0em 0em 0.5em 0em; background-color: #e2e5e9;">
+
+    <nav class="navbar navbar-dark bg-dark navbar-expand-lg" role="navigation">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{/}">BlogCentral</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02"
+                    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="nav navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" th:href="@{/aboutUs}">AboutUs</a>
+                    </li>
+
+
+
+                </ul>
+
+                <form class="d-flex navbar-nav me-auto mb-2 " action="search" method="get" role="search">
+                    <!--                    <div class="form-group">-->
+                    <input type="text" name="find_author" placeholder="Author Name"
+                           class="form-control me-2" id="fieldKeyword1">
+                    <!--                    </div>-->
+                    <!--                    <div class="form-group">-->
+                    <input type="text" name="find_article" placeholder="Article Name"
+                           class="form-control me-2" id="fieldKeyword2">
+                    <!--                    </div>-->
+                    <button class="btn btn-outline-danger" type="submit" id="buttonSerach"> Search</button>
+                </form>
+
+                <ul class="nav navbar-nav navbar-right">
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="/image/avatardefault_92824.png" alt="mdo" width="32" height="32"
+                                                                                              class="rounded-circle">
+                            Author </a>
+<!--                        https://github.com/mdo.png-->
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                            <li><a class="dropdown-item" href="/authorProfileSettingPage">Author Profile</a></li>
+                            <li><a class="dropdown-item" href="/authorBlogHome">Author Blog-Home</a></li>
+                            <li><a class="dropdown-item" href="/createArticle">Create Article</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/login">Login</a></li>
+                            <li><a class="dropdown-item" href="/register">Register</a></li>
+                            <li>
+                                <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
+                                    <input hidden type="submit" value="Sign Out"/>
+                                </form>
+                                <a class="dropdown-item" href="javascript: document.logoutForm.submit()"
+                                   role="menuitem">Log Out</a>
+                            </li>
+                            <!--
+                                    <li> <form id="logoutForm" method="POST" th:action="@{/logout}">
+                                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+                                    </form>
+                                        <a class="dropdown-item"  onclick="document.forms['logoutForm'].submit()">Sign Out</a></li>
+                            -->
+
+
+                        </ul>
+                    </li>
+
+                </ul>
+            </div><!--/.navbar-collapse -->
+        </div>
+    </nav>
+
+
+    <script type="text/javascript">
+
+        $(document).ready(new function () {
+            $("#buttonSearch").on("click", function (e) {
+                keyword = $("#fieldKeyword1", "#fieldKeyword2").val();
+                alert("Keyword: " + Keyword);
+            });
+
+        });
+    </script>
+
+</div>
+</header>
+
+
+

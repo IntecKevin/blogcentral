@@ -2,72 +2,63 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org"
       xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
-    <meta charset="UTF-8">
+    <div th:replace="header :: myheader"></div>
     <title>Author Profile Page</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+
 </head>
+<!--
+<div class="logout">
+    <form th:action="@{/logout}" th:method="post">
+        <input type="submit" value="Sign Out">
+    </form>
+</div>
+-->
 <body>
+<div th:insert="navBar :: menubar"></div>
+
+<main>
 
 
 <div class="container">
-    <!--    <div class="menubar" th:replace=" ">Menu Bar</div>-->
+
 
     <h1> <b> have to add the previous visit page b4 login!!!! </b></h1>
 
-    <h3><a th:href="@{/}"> Home Page </a></h3>
-    <h3><a th:href="@{/login}"> Login (This will not be show in the final version) </a></h3>
-    <div class="logout">
-        <form th:action="@{/logout}" th:method="post">
-            <input type="submit" value="Sign Out">
-        </form>
-    </div>
-    <h3><a th:href="@{/authorBlogHome}"> Author Blog Home Page (protected page) </a></h3>
-    <br>
-    <br>
-    <hr>
+
 
     <h1> Your registration is successfully done !!! </h1>
 
 
     <p> You are log in as <b>[[${#request.userPrincipal.principal.fullName}]]</b></p>
+    <hr>
+    <p>Go to
+       <b> <span sec:authentication="principal.fullName"> </span> 's</b>
+        <a th:href="@{/authorBlogHome}">
+            <button type="button" class="btn btn-primary" >Blog home page</button>
+        </a>
+    </p>
+        <hr>
+
     <span sec:authentication="principal.fullName"> </span>
 
     <div class="profileContainer">
 
-        <!--
-               <table>
-                   <tr>
-                       <td>Name :</td>
-                       <td>${name}</td>
-                   </tr>
-                   <tr>
-                       <td>ID :</td>
-                       <td>${id}</td>
-                   </tr>
-                   <tr>
-                       <td>Contact Number :</td>
-                       <td>${contactNumber}</td>
-                   </tr>
-               </table>
-               -->
-
-
-        <form class="mx-1 mx-md-4">
+         <form class="mx-1 mx-md-4">
 
 
             <div class="vol-8">
                 <lable> Email :</lable>
-                <input th:type="text" th:name="email"  th:value="${author.username}">
+                <input th:type="text" th:name="email"  th:value="${authordetail.username}">
             </div>
 
             <div class="vol-8">
                 <lable> Full Name :</lable>
-                <input th:type="text" th:name="fullName" th:value="${author.fullName }">
+                <input th:type="text" th:name="fullName" th:value="${authordetail.fullName }">
             </div>
 
             <div class="vol-8">
                 <lable> First Name :</lable>
-                <input th:type="text" th:name="firstName" th:value="${author.getFirstName() }">
+                <input th:name="firstName" th:type="text" th:value="${author.getFirstName() }">
             </div>
 
             <div class="vol-8">
@@ -75,10 +66,15 @@
                 <input th:type="text" th:name="lastName" th:value="${author.getLastName() }">
             </div>
 
-<!--            <div class="vol-8">-->
-<!--                <lable> User Name :</lable>-->
-<!--                <input th:type="text" th:name="userName" th:value="${authorDetail.loadUserByUsername(getaddress) }">-->
-<!--            </div>-->
+            <div class="vol-8">
+                <lable> User Name :</lable>
+                <input th:type="text" th:name="userName" th:value="${author.getUserName() }">
+            </div>
+
+            <div class="vol-8">
+                <lable> House Number :</lable>
+                <input th:type="text" th:name="userName" th:value="${author.getHouseNo() }">
+            </div>
 
 
 
@@ -93,6 +89,7 @@
 
 </div>
 
-
+</main>
+<div th:insert="footer :: footer"></div>
 </body>
 </html>

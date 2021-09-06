@@ -1,34 +1,164 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
+    <div th:replace="header :: myheader"></div>
+    <link rel="stylesheet" th:href="@{/aboutUs.css}"/>
     <title>About US Page</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" th:href="@{/homeStyle.css}"/>
-
-    <!--    <link rel="stylesheet" href="../static/homeStyle.css">/5.1.0   th:type="text/css" -->
-
 </head>
+
 <body>
-<div class="container">
-    <div class="header">
-        <h2> Welcome to our Blog Central Team !</h2>
+
+<div th:insert="navBar :: menubar"></div>
+
+<main>
+
+    <div class="container marketing">
+        <div class="b-example-divider"></div>
+        <div class="row featurette gx-5 ">
+            <div class="col-md-7">
+                <img src="/image/Blocg_Central.png" alt="#" />
+            </div>
+            <div class="col-md-5">
+                <h2 class="featurette-heading">
+                    Our SpringBoot Java full stack project.
+                    <span class="text-muted">It’ll blow your mind.</span>
+                </h2>
+                <p class="lead">
+                    We are awesome group of Java developer form Intec Brussels 2020-2021 class.
+                    Look below what we had learned --
+                </p>
+
+                <div class="list">
+                    <div class="single-list">
+                        <div class="list-icon">
+                            <i class="lni lni-checkmark"></i>
+                        </div>
+                        <h4>Java (SE and EE) </h4>
+
+                    </div>
+                    <div class="single-list">
+                        <div class="list-icon">
+                            <i class="lni lni-checkmark"></i>
+                        </div>
+                        <h4>DataBase</h4>
+                        <p>MySql, SQL, JDBC, JPA and Hibernate</p>
+                    </div>
+                    <div class="single-list">
+                        <div class="list-icon">
+                            <i class="lni lni-checkmark"></i>
+                        </div>
+                        <h4>Supporting Knowledge</h4>
+                        <p>SpringBoot Framework, MVC, Maven, Aglie & Scrum</p>
+                    </div>
+                    <div class="single-list">
+                        <div class="list-icon">
+                            <i class="lni lni-checkmark"></i>
+                        </div>
+                        <h4>If you want hire us contact below</h4>
+                        <p>weareawsome.com :) :) </p>
+                    </div>
+                    <div class="single-list">
+                        <div class="list-icon">
+                            <i class="lni lni-checkmark"></i>
+                        </div>
+                        <h4>If you want to become a java eveloper</h4>
+                        <p>Check out  at <a href="http://www.intecbrussel.be/"> INTEC BRUSSEL</a> </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-example-divider"></div>
+        <div class="container text-center" style="padding: 2em">
+            <h5>The awesome Team</h5>
+            <img
+                    src="/image/Baby Bossjpg.jpg"
+                    alt="Avatar"
+                    class="rounded mx-auto d-block"
+                    style="max-width: 250px"
+            />
+            <!-- style="max-width: 128px" -->
+            <!-- class="img-fluid rounded-circle mr-4" -->
+
+            <h4>Cogneau Manuel</h4>
+            <h5>Big Boss</h5>
+            <h6>Java Educator and Instructor for INTEC Brussels Java 2020 class</h6>
+        </div>
+
+        <div class="b-example-divider"></div>
+        <!-- Three columns of text below the carousel -->
+        <div class="row" style="padding: 2em">
+            <div class="col-lg-4">
+                <img
+                        src="/image/Ali.png"
+                        alt="Avatar"
+                        class="img-fluid rounded-circle mr-4"
+                        style="max-width: 200px; padding: 1em"
+                />
+                <h4>Sezgin Aai</h4>
+                <h5>Java Developer</h5>
+
+                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+            <div class="col-lg-4">
+                <img
+                        src="/image/kevin.jpg.jpg"
+                        alt="Avatar"
+                        class="img-fluid rounded-circle mr-4"
+                        style="max-width: 210px; padding: 1em"
+                />
+
+                <h4>Kevin Guidart Sanchez</h4>
+                <h5>Java Developer</h5>
+
+                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div>
+            <!-- /.col-lg-4 -->
+
+            <div class="col-lg-4">
+                <img
+                        src="/image/jimbo.jpg"
+                        alt="Avatar"
+                        class="img-fluid rounded-circle mr-4"
+                        style="max-width: 200px; padding: 1em; height: 200px"
+                />
+                <h4>Salai Aung</h4>
+                <h5>Java Developer</h5>
+
+                <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div>
+            <!--
+              <svg
+                class="bd-placeholder-img rounded-circle"
+                width="140"
+                height="140"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Placeholder: 140x140"
+                preserveAspectRatio="xMidYMid slice"
+                focusable="false"
+              >
+                <title>Placeholder</title>
+                <rect width="100%" height="100%" fill="#777" />
+                <text x="50%" y="50%" fill="#777" dy=".3em">140x140</text>
+              </svg>
+
+              <h2>Heading3</h2>
+              <p>
+                And lastly this, the third column of representative placeholder
+                content.
+              </p>
+              <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+            </div>
+            -->
+            <div class="b-example-divider"></div>
+            <!-- /.col-lg-4 -->
+        </div>
+        <!-- /.row -->
     </div>
-    <div class="loginPage">
-        <h3><a th:href="@{/}"> Home Page </a></h3>
-        <h3><a th:href="@{/login}"> Login </a></h3>
-        <h3><a th:href="@{/authorProfileSettingPage}"> Registered Success + Author Profile Page (protected page)</a></h3>
-        <h3><a th:href="@{/authorBlogHome}"> Author Blog Home Page (protected page) </a></h3>
-    </div>
-
-    <div class="teamcontainer">
-
-        <h4>Our Team</h4>
-    </div>
-
-
-
-</div>
-
+</main>
+<div th:insert="footer :: footer"></div>
 </body>
 </html>

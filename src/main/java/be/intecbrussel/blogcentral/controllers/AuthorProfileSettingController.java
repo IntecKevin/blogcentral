@@ -14,10 +14,52 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AuthorProfileSettingController {
 
+    /*
     @Autowired
     private CustomAuthorDetailService customAuthorDetailService;
 
+    public AuthorProfileSettingController(CustomAuthorDetailService customAuthorDetailService) {
+        this.customAuthorDetailService = customAuthorDetailService;
+    }
+
+    public AuthorProfileSettingController() {
+    }
+
+     */
+//    private AuthorDetailImpl authorDetailImpl;
+
+
+
     @GetMapping("/authorProfileSettingPage")
+    //Change to Author Class and try to work
+    public String authorSettingPage(@AuthenticationPrincipal AuthorDetailImpl authorDetailImpl, Model model
+                                    , Author loginAuthor,
+                                    Model model1
+    ) {
+        if (authorDetailImpl == null) {
+            throw new UsernameNotFoundException("User not found user with that email");
+        }
+        String userEmail = authorDetailImpl.getUsername();
+
+        model.addAttribute("authordetail", authorDetailImpl);
+
+        model1.addAttribute("author", loginAuthor);
+
+
+//        model.addAttribute("authorDetail", customAuthorDetailService);
+//        model.addAllAttributes(<loginAuthor> , getClass(Author));
+
+
+        return "authorProfileSettingPage";
+
+    }
+
+    /*
+    //Working Code
+
+
+    @GetMapping("/authorProfileSettingPage")
+    //Change to Author Class and try to work
     public String authorSettingPage(@AuthenticationPrincipal AuthorDetailImpl loginAuthor,
                                     Model model) {
         if (loginAuthor == null) {
@@ -27,13 +69,15 @@ public class AuthorProfileSettingController {
 
 
         model.addAttribute("author", loginAuthor);
-        model.addAttribute("authorDetail", customAuthorDetailService);
+
+//        model.addAttribute("authorDetail", customAuthorDetailService);
 //        model.addAllAttributes(<loginAuthor> , getClass(Author));
 
 
         return "authorProfileSettingPage";
 
     }
+    */
 
     /*
 

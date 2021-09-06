@@ -2,6 +2,7 @@ package be.intecbrussel.blogcentral.model;
 
 import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -40,6 +41,13 @@ public class Author {
 
     @Column(nullable = false, length = 6)
     private int zipCode;
+
+    @OneToMany(mappedBy="author", cascade = CascadeType.ALL)
+    private List<Article> articles;
+
+    @OneToMany(mappedBy="author", cascade = CascadeType.ALL)
+    private List<Comment> comments;
+
 /*
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "author_id"), inverseJoinColumns = @JoinColumn(name = "article_id"))

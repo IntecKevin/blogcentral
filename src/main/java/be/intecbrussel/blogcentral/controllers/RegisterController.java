@@ -3,7 +3,11 @@ package be.intecbrussel.blogcentral.controllers;
 
 import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorRepo;
+import be.intecbrussel.blogcentral.repositories.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,8 +21,19 @@ public class RegisterController {
     @Autowired
     private AuthorRepo repo;
 
+    @Autowired
+    private SecurityService securityService;
+
     @GetMapping("/register")
     public String showSignUpForm(Model model) {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            return "register";
+        }
+
+        if (securityService.isAuthenticated()) {
+            return "redirect:/";
+        }
         model.addAttribute("user", new Author());
         return "register";
     }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="header :: myheader"></div>
+    <title>Master Template</title>
+<!--    specific css style-->
+    <link rel="stylesheet" th:href="@{}"/>
+
+</head>
+
+<body>
+
+<div th:insert="navBar :: menubar"></div>
+
+<main>
+
+<div class="container">
+
+
+
+
+
+</div>
+</main>
+<div th:insert="footer :: footer"></div>
+
+</body>
+</html>

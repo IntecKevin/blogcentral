@@ -1,0 +1,32 @@
+.marketing{
+    padding: 3rem;
+}
+.marketing .col-lg-4 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+.col-md-5{
+    padding-top: 4em;
+}
+/*.featurette-heading {*/
+/*    font-weight: 300;*/
+/*    line-height: 1;*/
+/*    !*!* rtl:remove *!*!*/
+/*    letter-spacing: -.05rem;*/
+/*}*/
+.b-example-divider {
+ height: 3rem;
+  /*background-color: rgba(0, 0, 0, .1);*/
+  /*border: solid rgba(0, 0, 0, .15);*/
+  /*border-width: 1px 0;*/
+  /*box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);*/
+}
+img {
+    max-width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .featurette {
+        flex-direction: column-reverse;
+    }
+}

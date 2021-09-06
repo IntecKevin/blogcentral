@@ -1,49 +1,72 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Articles</title>
-    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <div th:replace="header :: myheader"></div>
+
+    <!--    specific css style-->
     <link rel="stylesheet" th:href="@{/article.css}"/>
+    <title>Articles</title>
 
 </head>
 <body>
-<div class="container">
-    <div class="header">
-        <h2>You can share your articles here</h2>
+
+<div th:insert="navBar :: menubar"></div>
+
+<main style="padding: 2em 0em">
+
+    <div class="container" style="padding: 0em 5em;">
+        <div class="container-lg" style="padding-bottom: 2em ">
+            <img src="/image/img_forest.jpg" class="rounded mx-auto d-block" alt="forest">
+            <!--        <img  class="d-block" src="/image/img_forest.jpg" alt="forest" >-->
+        </div>
+
+        <div class="header" style="text-align: center; padding-bottom: 2em;">
+            <h2>You can share your thought to the world by writing an articles here.</h2>
+        </div>
+
+        <form th:action="@{/process_article}"
+              method="post"
+              th:object="${article}">
+
+            <!--            <div class="articlepage">-->
+            <!--                <h3><a th:href="@{/article}"> View your article/s </a></h3>-->
+            <!--            </div>-->
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="articleTitle">Title</label>
+                <input type="text" th:field="*{articleTitle}" id="articleTitle" class="form-control form-control-lg"
+                       th:name="Title"/>
+
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="summary">Summary</label>
+                <input type="text" th:field="*{articleSummary}" id="summary" class="form-control form-control-lg"
+                       th:name="Summary"/>
+
+            </div>
+
+            <div class="form-outline mb-4">
+                <label class="form-label" for="articleText">Article Detail</label>
+                <textarea  type="text" th:field="*{articleText}" id="articleText" class="form-control"
+                          th:name="Text" rows="3"></textarea>
+
+
+            </div>
+            <!--      <textarea th:field="*{articleText}" id="articleText" class="form-control form-control-lg"
+                          th:name="Text" > </textarea>
+                                  <input type="text" th:field="*{articleText}" id="articleText" class="form-control form-control-lg"
+                   th:name="Text" rows="3"/>
+              -->
+
+            <div class="pt-1 mb-4">
+                <button class="btn btn-info btn-lg btn-block" type="submit">Submit</button>
+            </div>
+
+        </form>
     </div>
-
-    <form th:action="@{/process_article}"
-        method="post"
-        th:object="${article}">
-    <div class="articlepage">
-        <h3><a th:href="@{/article}"> Create an article </a></h3>
-    </div>
-
-        <div class="form-outline mb-4">
-            <input type="text" th:field="*{articleTitle}" id="articleTitle" class="form-control form-control-lg"
-                   th:name="Title"/>
-            <label class="form-label" for="articleTitle">Title</label>
-        </div>
-
-        <div class="form-outline mb-4">
-            <input type="text" th:field="*{articleSummary}" id="summary" class="form-control form-control-lg"
-                   th:name="Summary"/>
-            <label class="form-label" for="summary">Summary</label>
-        </div>
-
-        <div class="form-outline mb-4">
-            <input type="text" th:field="*{articleText}" id="articleText" class="form-control form-control-lg"
-                   th:name="Text"/>
-            <label class="form-label" for="articleText">Article Text</label>
-        </div>
-
-        <div class="pt-1 mb-4">
-            <button class="btn btn-info btn-lg btn-block"  type="submit" >Submit</button>
-        </div>
-
-    </form>
-</div>
+</main>
+<div th:insert="footer :: footer"></div>
 
 </body>
 </html>
