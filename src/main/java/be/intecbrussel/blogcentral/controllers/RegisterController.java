@@ -28,13 +28,14 @@ public class RegisterController {
     public String showSignUpForm(Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
+            model.addAttribute("user", new Author());
             return "register";
         }
 
         if (securityService.isAuthenticated()) {
             return "redirect:/";
         }
-        model.addAttribute("user", new Author());
+
         return "register";
     }
 
@@ -44,6 +45,6 @@ public class RegisterController {
         String encodedPassword = encoder.encode(author.getPassword());
         author.setPassword(encodedPassword);
         repo.save(author);
-        return "index";
+        return "login";
     }
 }
