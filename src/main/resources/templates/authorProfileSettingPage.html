@@ -37,6 +37,19 @@
             <button type="button" class="btn btn-primary" >Blog home page</button>
         </a>
     </p>
+
+    <div class="form-check">
+        <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="remember-me"
+                name="remember-me"
+
+        />
+        <!--                                checked-->
+        <label class="form-check-label" for="remember-me"> Remember me </label>
+    </div>
         <hr>
 
     <span sec:authentication="principal.fullName"> </span>
@@ -76,8 +89,20 @@
                 <input th:type="text" th:name="userName" th:value="${author.getHouseNo() }">
             </div>
 
+<!--
+             <div class="form-check">
+                 <input
+                         class="form-check-input"
+                         type="checkbox"
+                         value=""
+                         id="remember-me"
+                         name="remember-me"
 
-
+                 />
+                                                checked
+                 <label class="form-check-label" for="remember-me"> Remember me </label>
+             </div>
+    -->
         </form>
 
     </div>
