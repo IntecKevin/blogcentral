@@ -6,13 +6,16 @@ import be.intecbrussel.blogcentral.repositories.AuthorRepo;
 import be.intecbrussel.blogcentral.repositories.SecurityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.config.web.server.ServerHttpSecurity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.util.RedirectUrlBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 
@@ -29,7 +32,7 @@ public class RegisterController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             model.addAttribute("user", new Author());
-            return "register";
+            return "redirect:/register";
         }
 
         if (securityService.isAuthenticated()) {
@@ -45,6 +48,7 @@ public class RegisterController {
         String encodedPassword = encoder.encode(author.getPassword());
         author.setPassword(encodedPassword);
         repo.save(author);
-        return "login";
+        return "redirect:/login";
+//        return new RedirectView("/login");
     }
 }

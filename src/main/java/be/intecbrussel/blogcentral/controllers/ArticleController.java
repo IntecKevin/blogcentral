@@ -14,16 +14,16 @@ public class ArticleController {
     @Autowired
     private ArticleRepo articleRepo;
 
-    @GetMapping("/createArticle")
+    @GetMapping("/author/createArticle")
     public String showArticleForm(Model model) {
         model.addAttribute("article", new Article());
-        return "createArticle";
+        return "author/createArticle";
     }
 
-    @PostMapping("/process_article")
+    @PostMapping("/pro/process_article")
     public String processPosting(Article article) {
         articleRepo.save(article);
-        return "index";
+        return "redirect:/index";
     }
 
 

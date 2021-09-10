@@ -1,6 +1,8 @@
 package be.intecbrussel.blogcentral.model;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -16,6 +18,12 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column
+    private Date postDate;
+
+    @Column
+    private LocalDateTime postTime;
+
     @Column(nullable = false)
     private String articleText;
 
@@ -25,11 +33,12 @@ public class Article {
     @Column(nullable = false, length = 60)
     private String articleTitle;
 
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn(name= "author_id")
     private Author author;
 
-    @OneToMany
-    private List<Comment> comment;
+    @OneToMany (mappedBy = "article", cascade = CascadeType.ALL)
+     private List<Comment> comment;
 
     public Article(String articleText, String articleSummary,
                    String articleTitle, Author author, List<Comment> comment) {
@@ -53,6 +62,22 @@ public class Article {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Date getPostDate() {
+        return postDate;
+    }
+
+    public void setPostDate(Date postDate) {
+        this.postDate = postDate;
+    }
+
+    public LocalDateTime getPostTime() {
+        return postTime;
+    }
+
+    public void setPostTime(LocalDateTime postTime) {
+        this.postTime = postTime;
     }
 
     public String getArticleText() {

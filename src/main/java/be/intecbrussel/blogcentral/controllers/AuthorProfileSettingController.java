@@ -3,8 +3,6 @@ package be.intecbrussel.blogcentral.controllers;
 
 import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorDetailImpl;
-import be.intecbrussel.blogcentral.services.CustomAuthorDetailService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
@@ -30,7 +28,7 @@ public class AuthorProfileSettingController {
 
 
 
-    @GetMapping("/authorProfileSettingPage")
+    @GetMapping("/author/authorProfileSettingPage")
     //Change to Author Class and try to work
     public String authorSettingPage(@AuthenticationPrincipal AuthorDetailImpl authorDetailImpl, Model model
                                     , Author loginAuthor,
@@ -50,7 +48,7 @@ public class AuthorProfileSettingController {
 //        model.addAllAttributes(<loginAuthor> , getClass(Author));
 
 
-        return "authorProfileSettingPage";
+        return "redirect:/author/authorProfileSettingPage";
 
     }
 

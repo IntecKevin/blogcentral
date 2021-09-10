@@ -54,7 +54,8 @@ public class AuthorSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/authorBlogHome" , " /authorProfileSettingPage").authenticated() // this is the protected section
+
+                .antMatchers("/author/**").authenticated() // this is the protected section
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()
@@ -71,7 +72,7 @@ public class AuthorSecurityConfig extends WebSecurityConfigurerAdapter {
 
     }
 
-
+//                .antMatchers("/authorBlogHome" , " /authorProfileSettingPage").authenticated()
 
 
 }

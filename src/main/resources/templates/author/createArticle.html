@@ -21,16 +21,24 @@
         </div>
 
         <div class="header" style="text-align: center; padding-bottom: 2em;">
-            <h2>You can share your thought to the world by writing an articles here.</h2>
+
+            <h2> <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+                , You can share your thought to the world by writing an articles here.</h2>
         </div>
 
-        <form th:action="@{/process_article}"
+        <form th:action="@{/pro/process_article}"
               method="post"
               th:object="${article}">
 
             <!--            <div class="articlepage">-->
             <!--                <h3><a th:href="@{/article}"> View your article/s </a></h3>-->
             <!--            </div>-->
+
+            <div class="form-outline mb-4">
+                <input th:hidden="true" type="text" th:field="*{author.fullName}" id="author" class="form-control form-control-lg"
+                       th:name="Title"/>
+
+            </div>
 
             <div class="form-outline mb-4">
                 <label class="form-label" for="articleTitle">Title</label>

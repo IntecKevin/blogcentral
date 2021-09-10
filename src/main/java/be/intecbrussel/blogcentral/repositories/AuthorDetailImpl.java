@@ -1,4 +1,5 @@
 package be.intecbrussel.blogcentral.repositories;
+
 import java.util.Collection;
 
 import be.intecbrussel.blogcentral.model.Author;
@@ -11,13 +12,14 @@ import org.springframework.stereotype.Service;
 
 public class AuthorDetailImpl implements UserDetails {
 
-
+    @Autowired
     private Author author;
 
 
     public AuthorDetailImpl(Author author) {
         this.author = author;
     }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         /*
@@ -72,13 +74,11 @@ public class AuthorDetailImpl implements UserDetails {
     }
 
 
-
-
-    public String getFullName(){
+    public String getFullName() {
         return this.author.getFullName();
     }
 
-    // How can I get all the user information not to rewrite again
+    // How can I get all the Author information not to rewrite again
 
     public String getFirstName() {
         return author.getFirstName();
@@ -91,10 +91,11 @@ public class AuthorDetailImpl implements UserDetails {
 
     // How can I reuse the Author Class without rewriting following codes.
 
-    public void setFirstName (String fistName) {
+    public void setFirstName(String fistName) {
         this.author.setFirstName(fistName);
     }
-    public void setLastName (String lastName) {
+
+    public void setLastName(String lastName) {
         this.author.setLastName(lastName);
     }
 }

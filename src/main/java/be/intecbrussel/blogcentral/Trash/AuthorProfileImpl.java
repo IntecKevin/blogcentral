@@ -1,4 +1,4 @@
-package be.intecbrussel.blogcentral.repositories;
+package be.intecbrussel.blogcentral.Trash;
 
 import be.intecbrussel.blogcentral.model.Author;
 

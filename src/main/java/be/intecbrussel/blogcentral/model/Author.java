@@ -5,47 +5,51 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-@Entity
-@Table(name = "authors")
+@Entity (name = "Author")
+@Table(name = "authors",   uniqueConstraints = {@UniqueConstraint(name = "author_email_unique", columnNames = "email")})
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    @Column(nullable = false, unique = true, length = 44)
+    @Column(name= "email", nullable = false,  length = 44)
     private String email;
 
-    @Column (nullable = false, length = 64)
+    @Column (name= "password", nullable = false, length = 64)
     private String password;
 
 
-    @Column(nullable = false, length = 20)
+    @Column(name = "first_name", nullable = false, length = 20)
     private String firstName;
 
 
-    @Column(nullable = false, length = 20)
+    @Column(name= "last_name", nullable = false, length = 20)
     private String lastName;
 
-    @Column(nullable = false, length = 20)
+    @Column(name="user_name", nullable = false, length = 20)
     private String userName;
 
-    @Column(nullable = false, length = 100)
+    @Column(name="street_name", nullable = false, length = 100)
     private String streetName;
 
-    @Column(nullable = false, length = 10)
+    @Column(name = "house_no", nullable = false, length = 10)
     private int houseNo;
 
-    @Column(nullable = false, length = 20)
+    @Column( name= "city_name", nullable = false, length = 20)
     private String cityName;
 
-    @Column(nullable = false, length = 6)
+    @Column(name = "zip_code",nullable = false, length = 6)
     private int zipCode;
 
+
+//    @OneToMany( cascade = CascadeType.ALL)
+//    @JoinColumn(name = "author_id")
     @OneToMany(mappedBy="author", cascade = CascadeType.ALL)
     private List<Article> articles;
 
-    @OneToMany(mappedBy="author", cascade = CascadeType.ALL)
+    @OneToMany( cascade = CascadeType.ALL)
+    @JoinColumn(name = "author_id")
     private List<Comment> comments;
 
 /*
@@ -53,6 +57,8 @@ public class Author {
     @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "author_id"), inverseJoinColumns = @JoinColumn(name = "article_id"))
     private Set<Article> roles = new HashSet<>();
   */
+
+
 
 
     public Long getId() {
@@ -135,8 +141,26 @@ public class Author {
         this.zipCode = zipCode;
     }
 
-    public Author(String email, String password, String firstName, String lastName,
-                  String userName, String streetName, int houseNo, String cityName, int zipCode) {
+    public List<Article> getArticles() {
+        return articles;
+    }
+
+    public void setArticles(List<Article> articles) {
+        this.articles = articles;
+    }
+
+    public List<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<Comment> comments) {
+        this.comments = comments;
+    }
+
+    public Author(Long id, String email, String password, String firstName, String lastName,
+                  String userName, String streetName, int houseNo, String cityName, int zipCode,
+                  List<Article> articles, List<Comment> comments) {
+        this.id = id;
         this.email = email;
         this.password = password;
         this.firstName = firstName;
@@ -146,6 +170,24 @@ public class Author {
         this.houseNo = houseNo;
         this.cityName = cityName;
         this.zipCode = zipCode;
+        this.articles = articles;
+        this.comments = comments;
+    }
+
+    public Author(String email, String password, String firstName, String lastName,
+                  String userName, String streetName, int houseNo, String cityName, int zipCode,
+                  List<Article> articles, List<Comment> comments) {
+        this.email = email;
+        this.password = password;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.userName = userName;
+        this.streetName = streetName;
+        this.houseNo = houseNo;
+        this.cityName = cityName;
+        this.zipCode = zipCode;
+        this.articles = articles;
+        this.comments = comments;
     }
 
     public Author() {
@@ -164,8 +206,11 @@ public class Author {
                 ", houseNo=" + houseNo +
                 ", cityName='" + cityName + '\'' +
                 ", zipCode=" + zipCode +
+                ", articles=" + articles +
+                ", comments=" + comments +
                 '}';
     }
+
 
     @Transient
     public String getFullName() {

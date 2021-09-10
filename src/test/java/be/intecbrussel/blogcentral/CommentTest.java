@@ -1,15 +1,17 @@
 package be.intecbrussel.blogcentral;
 
+
 import be.intecbrussel.blogcentral.model.Article;
 import be.intecbrussel.blogcentral.model.Author;
+import be.intecbrussel.blogcentral.model.Comment;
 import be.intecbrussel.blogcentral.repositories.ArticleRepo;
+import be.intecbrussel.blogcentral.repositories.CommentRepo;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
-
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -20,31 +22,33 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 @Rollback(false)
-public class ArticleTest {
+public class CommentTest {
 
     @Autowired
-    private ArticleRepo articleRepo;
+    private CommentRepo commentRepo;
 
     @Autowired
     private TestEntityManager entityManager;
 
+
     @Test
-    public void testCreateArticle() {
-        Author author1 = new Author();
+    public void testCreateComment() {
         Article article = new Article();
-        article.setAuthor(author1);
-        article.setPostTime(LocalDateTime.now());
-        article.setPostDate(Date.from(Instant.now()));
-        article.setArticleTitle("The art of a coffee");
-        article.setArticleSummary("summary of coffee");
-        article.setArticleText("aslfkbalsfbasfşasfasfa");
 
 
+        Comment comment = new Comment();
+        comment.setPostDate(Date.from(Instant.now()));
+
+//        comment.setArticle(article);
+        comment.setCommentText("Shitty friday !!!!");
 
 
-        Article savedArticle =  articleRepo.save(article);
-        Article existArticle = entityManager.find(Article.class, savedArticle.getId());
-        assertThat (existArticle.getArticleText()).isEqualTo(article.getArticleText());
+        Comment savedComment =  commentRepo.save(comment);
+        Comment existComment = entityManager.find(Comment.class, savedComment.getId());
+        assertThat (existComment.getCommentText() ).isEqualTo(comment.getCommentText());
+
+
 
     }
+
 }

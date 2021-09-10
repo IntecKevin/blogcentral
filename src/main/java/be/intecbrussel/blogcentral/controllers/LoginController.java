@@ -21,7 +21,7 @@ public class LoginController {
 // This code is preventing to access login page after user had login. (Same code use in Register page too)
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
-            return "login";
+            return "redirect:/login";
         }
 
         if (securityService.isAuthenticated()) {
@@ -33,7 +33,7 @@ public class LoginController {
 
         if (logout != null)
             model.addAttribute("message", "You have been logged out successfully.");
-        return "login";
+        return "redirect: login";
     }
 
 //    @PostMapping("/logout")

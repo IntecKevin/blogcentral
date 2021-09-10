@@ -1,5 +1,6 @@
-<header>
+
 <div class="nevContainer" th:fragment="menubar" style="padding: 0em 0em 0.5em 0em; background-color: #e2e5e9;">
+<!--    <header xmlns:sec="http://www.w3.org/1999/xhtml">-->
 
     <nav class="navbar navbar-dark bg-dark navbar-expand-lg" role="navigation">
         <div class="container-fluid">
@@ -41,27 +42,31 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                           role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                           role="button" data-bs-toggle="dropdown" aria-expanded="false"
+                       >
+<!--                            sec:authehtication="principal.fullname"-->
                             <img src="/image/avatardefault_92824.png" alt="mdo" width="32" height="32"
                                                                                               class="rounded-circle">
-                            Author </a>
+<!--                            <span sec:authentication="principal.fullName"> </span>-->
+                        </a>
 <!--                        https://github.com/mdo.png-->
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-                            <li><a class="dropdown-item" href="/authorProfileSettingPage">Update Author Profile</a></li>
-                            <li><a class="dropdown-item" href="/authorBlogHome">Author Blog-Home</a></li>
-                            <li><a class="dropdown-item" href="/createArticle">Create Article</a></li>
+                            <li><a class="dropdown-item" href="/author/authorProfileSettingPage">Update Author Profile</a></li>
+                            <li><a class="dropdown-item" href="/author/authorBlogHome">Author Blog-Home</a></li>
+                            <li><a class="dropdown-item" href="/author/createArticle">Create Article</a></li>
                             <li>
                                 <hr class="dropdown-divider">
                             </li>
                             <li><a class="dropdown-item" href="/login">Login</a></li>
                             <li><a class="dropdown-item" href="/register">Register</a></li>
                             <li>
+                                <i class="bi bi-box-arrow-right"></i>
                                 <form name="logoutForm" th:action="@{/logout}" method="post" th:hidden="true">
                                     <input hidden type="submit" value="Sign Out"/>
                                 </form>
                                 <a class="dropdown-item" href="javascript: document.logoutForm.submit()"
-                                   role="menuitem">Log Out</a>
+                                   role="menuitem"> Log Out</a>
                             </li>
                             <!--
                                     <li> <form id="logoutForm" method="POST" th:action="@{/logout}">
@@ -90,9 +95,9 @@
 
         });
     </script>
-
+<!--    </header>-->
 </div>
-</header>
+
 
 
 
