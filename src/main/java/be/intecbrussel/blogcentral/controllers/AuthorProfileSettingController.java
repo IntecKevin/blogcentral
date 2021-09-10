@@ -48,7 +48,7 @@ public class AuthorProfileSettingController {
 //        model.addAllAttributes(<loginAuthor> , getClass(Author));
 
 
-        return "redirect:/author/authorProfileSettingPage";
+        return "/author/authorProfileSettingPage";
 
     }
 

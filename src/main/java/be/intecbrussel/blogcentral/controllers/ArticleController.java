@@ -23,7 +23,7 @@ public class ArticleController {
     @PostMapping("/pro/process_article")
     public String processPosting(Article article) {
         articleRepo.save(article);
-        return "redirect:/index";
+        return "redirect:/author/authorBlogHome";
     }
 
 

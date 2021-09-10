@@ -32,7 +32,7 @@ public class RegisterController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || authentication instanceof AnonymousAuthenticationToken) {
             model.addAttribute("user", new Author());
-            return "redirect:/register";
+            return "register";
         }
 
         if (securityService.isAuthenticated()) {

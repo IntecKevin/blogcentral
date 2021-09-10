@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.Set;
 
 @Entity (name = "Author")
-@Table(name = "authors",   uniqueConstraints = {@UniqueConstraint(name = "author_email_unique", columnNames = "email")})
+@Table(name = "authors",
+        uniqueConstraints = {@UniqueConstraint(name = "author_email_unique", columnNames = "email")})
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

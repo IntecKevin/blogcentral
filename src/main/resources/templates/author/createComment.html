@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <div th:replace="header :: myheader"></div>
+
+  <!--    specific css style-->
+  <link rel="stylesheet" th:href="@{/article.css}"/>
+  <title>Comment</title>
+
+</head>
+<body>
+
+<div th:insert="navBar :: menubar"></div>
+
+<main style="padding: 2em 0em">
+
+  <div class="container" style="padding: 0em 5em;">
+
+
+    <div class="header" style="text-align: center; padding-bottom: 2em;">
+
+      <h2> <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+        , You are writing a comment for an specific articles here.</h2>
+      <h6> <b>Note !!</b> This is the comment sample testing section, in the final version, this box will be under the Specific Article
+        <br> with "write comment", "edit" and "delete" function buttons</h6>
+    </div>
+
+    <form th:action="@{/pro/process_comment}"
+          method="post"
+          th:object="${comment}">
+
+      <!--            <div class="articlepage">-->
+      <!--                <h3><a th:href="@{/article}"> View your article/s </a></h3>-->
+      <!--            </div>-->
+
+      <!--
+      Need to add author ID in this field not a full nmae
+      <div class="form-outline mb-4">
+          <input th:hidden="true" type="text" th:field="*{author.fullName}" id="author" class="form-control form-control-lg"
+                 th:name="Title"/>
+
+      </div>
+      -->
+
+
+
+
+
+      <div class="form-outline mb-4">
+        <label class="form-label" for="commentText">Write A Comment</label>
+        <textarea  type="text" th:field="*{commentText}" id="commentText" class="form-control"
+                   th:name="comment_text" rows="3"></textarea>
+
+
+      </div>
+      <!--      <textarea th:field="*{articleText}" id="articleText" class="form-control form-control-lg"
+                    th:name="Text" > </textarea>
+                            <input type="text" th:field="*{articleText}" id="articleText" class="form-control form-control-lg"
+             th:name="Text" rows="3"/>
+        -->
+
+      <div class="pt-1 mb-4">
+        <button class="btn btn-info btn-lg btn-block" type="submit">Submit</button>
+      </div>
+
+    </form>
+  </div>
+</main>
+<div th:insert="footer :: footer"></div>
+
+</body>
+</html>
