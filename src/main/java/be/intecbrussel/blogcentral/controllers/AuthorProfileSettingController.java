@@ -3,6 +3,7 @@ package be.intecbrussel.blogcentral.controllers;
 
 import be.intecbrussel.blogcentral.model.Author;
 import be.intecbrussel.blogcentral.repositories.AuthorDetailImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class AuthorProfileSettingController {
 
+    /*
+    @Autowired
+    private AuthorDetailImpl authorDetailImpl;
+
+    @Autowired
+    public AuthorProfileSettingController(AuthorDetailImpl authorDetailImpl) {
+        this.authorDetailImpl = authorDetailImpl;
+    }
+*/
     /*
     @Autowired
     private CustomAuthorDetailService customAuthorDetailService;
@@ -31,17 +41,18 @@ public class AuthorProfileSettingController {
     @GetMapping("/author/authorProfileSettingPage")
     //Change to Author Class and try to work
     public String authorSettingPage(@AuthenticationPrincipal AuthorDetailImpl authorDetailImpl, Model model
-                                    , Author loginAuthor,
-                                    Model model1
+                                    , Author loginAuthor, Model model1
+
     ) {
         if (authorDetailImpl == null) {
             throw new UsernameNotFoundException("User not found user with that email");
         }
         String userEmail = authorDetailImpl.getUsername();
 
+//        Object author = model.getAttribute("author", loginAuthor);
         model.addAttribute("authordetail", authorDetailImpl);
 
-        model1.addAttribute("author", loginAuthor);
+        model1.addAttribute("lgauthor", loginAuthor);
 
 
 //        model.addAttribute("authorDetail", customAuthorDetailService);

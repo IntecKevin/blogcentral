@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <div th:replace="header :: myheader"></div>
+    <title>List of Articles</title>
+    <!--    specific css style-->
+    <link rel="stylesheet" th:href="@{/listArticles.css}"/>
+
+</head>
+
+<body>
+
+<div th:insert="navBar :: menubar"></div>
+
+<main>
+
+    <div class="container">
+        <h4>This is the List of Articles had written</h4>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Author</th>
+                <th>Publish Time</th>
+                <th>Title</th>
+                <th>Summary</th>
+                <th>Story</th>
+            </tr>
+
+
+            <tr th:each="article: ${articles}">
+
+                <td th:text="${article.id}"></td>
+                <td th:text="${article.id}"></td>
+<!--              <td th:text="${article.author.fullName}"></td>-->
+                <td th:text="${article.postTime}"></td>
+                <td th:text="${article.articleTitle}"></td>
+                <td th:text="${article.articleSummary}"></td>
+                <td th:text="${article.articleText}"></td>
+
+            </tr>
+
+
+        </table>
+
+
+
+
+
+    </div>
+</main>
+<div th:insert="footer :: footer"></div>
+
+</body>
+</html>

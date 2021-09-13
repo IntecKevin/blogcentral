@@ -25,8 +25,11 @@ public class CommentController {
     @Autowired
     private SecurityService securityService;
 
-    @GetMapping("/author/createComment")
+    public CommentController(CommentRepo commentRepo) {
+        this.commentRepo = commentRepo;
+    }
 
+    @GetMapping("/author/createComment")
     public String showArticleForm(Model model) {
         model.addAttribute("comment", new Comment());
         return "author/createComment";

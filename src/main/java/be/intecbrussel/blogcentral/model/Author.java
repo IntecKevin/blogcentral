@@ -47,7 +47,9 @@ public class Author {
 //    @OneToMany( cascade = CascadeType.ALL)
 //    @JoinColumn(name = "author_id")
     @OneToMany(mappedBy="author", cascade = CascadeType.ALL)
-    private List<Article> articles;
+//    @JoinColumn(name = "author_id")
+    private List<Article> articles ;
+
 
     @OneToMany( cascade = CascadeType.ALL)
     @JoinColumn(name = "author_id")

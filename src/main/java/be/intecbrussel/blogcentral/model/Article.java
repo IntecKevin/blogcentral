@@ -18,27 +18,36 @@ public class Article {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column (name ="post_date")
     private Date postDate;
 
-    @Column
+    @Column (name="post_time")
     private LocalDateTime postTime;
 
-    @Column(nullable = false)
+    @Column(name ="article_text", nullable = false)
     private String articleText;
 
-    @Column(nullable = false, length = 30)
+    @Column(name ="article_summary", nullable = false, length = 30)
     private String articleSummary;
 
-    @Column(nullable = false, length = 60)
+    @Column(name ="article_title", nullable = false, length = 60)
     private String articleTitle;
 
-    @ManyToOne (cascade = CascadeType.ALL)
-    @JoinColumn(name= "author_id")
+    @ManyToOne ( cascade = CascadeType.ALL)
+//    @JoinColumn(name= "author_id")
     private Author author;
+
+    /*
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "authors_articles", joinColumns = @JoinColumn(name = "author_id"), inverseJoinColumns = @JoinColumn(name = "article_id"))
+    private Set<Article> roles = new HashSet<>();
+
+     */
 
     @OneToMany (mappedBy = "article", cascade = CascadeType.ALL)
      private List<Comment> comment;
+
+
 
     public Article(String articleText, String articleSummary,
                    String articleTitle, Author author, List<Comment> comment) {
