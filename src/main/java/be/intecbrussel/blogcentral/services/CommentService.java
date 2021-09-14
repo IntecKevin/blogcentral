@@ -1,4 +1,17 @@
 package be.intecbrussel.blogcentral.services;
 
-public class CommentService {
+import be.intecbrussel.blogcentral.model.Comment;
+
+import java.util.List;
+
+public interface CommentService {
+
+    Comment findById(Long id);
+
+    Comment saveComment(Long postId, Long userId);
+
+    List<Comment> findAll();
+
+    void deleteById(Long commentId);
 }
+
